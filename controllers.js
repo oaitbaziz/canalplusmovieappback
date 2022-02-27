@@ -9,7 +9,7 @@ const getWeeklyTrending = async (req, res) => {
           api_key: process.env.API_KEY,
           ...req.query,
         },
-        headers: req.headers,
+        // headers: req.headers,
       }
     );
     res
@@ -31,7 +31,7 @@ const getSearchResults = async (req, res) => {
           api_key: process.env.API_KEY,
           ...req.query,
         },
-        headers: req.headers,
+        // headers: req.headers,
       }
     );
 
@@ -54,7 +54,7 @@ const getDetails = async (req, res) => {
           api_key: process.env.API_KEY,
           ...req.query,
         },
-        headers: req.headers,
+        // headers: req.headers,
       }
     );
     res
