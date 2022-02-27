@@ -16,7 +16,7 @@ const getWeeklyTrending = async (req, res) => {
       .json(response.data);
   } catch (error) {
     console.log(error);
-    res.json(error);
+    res.status(error?.response?.status || 500).json(error);
   }
 };
 
@@ -37,8 +37,8 @@ const getSearchResults = async (req, res) => {
       .status(response.status)
       .json(response.data);
   } catch (error) {
-    console.log(error);
-    res.json(error);
+    console.log(error.response);
+    res.status(error?.response?.status || 500).json(error);
   }
 };
 
@@ -59,7 +59,7 @@ const getDetails = async (req, res) => {
       .json(response.data);
   } catch (error) {
     console.log(error);
-    res.json(error);
+    res.status(error?.response?.status || 500).json(error);
   }
 };
 
