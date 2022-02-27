@@ -7,6 +7,7 @@ const getWeeklyTrending = async (req, res) => {
       {
         params: {
           api_key: process.env.API_KEY,
+          ...req.query,
         },
       }
     );
@@ -15,7 +16,7 @@ const getWeeklyTrending = async (req, res) => {
       .status(response.status)
       .json(response.data);
   } catch (error) {
-    console.log(error);
+    console.log(error.response);
     res.status(error?.response?.status || 500).json(error);
   }
 };
@@ -27,7 +28,7 @@ const getSearchResults = async (req, res) => {
       {
         params: {
           api_key: process.env.API_KEY,
-          query: req.query.query,
+          ...req.query,
         },
       }
     );
@@ -49,7 +50,7 @@ const getDetails = async (req, res) => {
       {
         params: {
           api_key: process.env.API_KEY,
-          append_to_response: "videos",
+          ...req.query,
         },
       }
     );
@@ -58,7 +59,7 @@ const getDetails = async (req, res) => {
       .status(response.status)
       .json(response.data);
   } catch (error) {
-    console.log(error);
+    console.log(error.response);
     res.status(error?.response?.status || 500).json(error);
   }
 };
