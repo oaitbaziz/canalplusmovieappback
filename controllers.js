@@ -9,13 +9,9 @@ const getWeeklyTrending = async (req, res) => {
           api_key: process.env.API_KEY,
           ...req.query,
         },
-        // headers: req.headers,
       }
     );
-    res
-      .set("Cache-control", "public, max-age=300")
-      .status(response.status)
-      .json(response.data);
+    res.status(response.status).json(response.data);
   } catch (error) {
     console.log(error.response);
     res.status(error?.response?.status || 500).json(error);
@@ -31,14 +27,9 @@ const getSearchResults = async (req, res) => {
           api_key: process.env.API_KEY,
           ...req.query,
         },
-        // headers: req.headers,
       }
     );
-
-    res
-      .set("Cache-control", "public, max-age=300")
-      .status(response.status)
-      .json(response.data);
+    res.status(response.status).json(response.data);
   } catch (error) {
     console.log(error.response);
     res.status(error?.response?.status || 500).json(error);
@@ -54,13 +45,9 @@ const getDetails = async (req, res) => {
           api_key: process.env.API_KEY,
           ...req.query,
         },
-        // headers: req.headers,
       }
     );
-    res
-      .set("Cache-control", "public, max-age=300")
-      .status(response.status)
-      .json(response.data);
+    res.status(response.status).json(response.data);
   } catch (error) {
     console.log(error.response);
     res.status(error?.response?.status || 500).json(error);
